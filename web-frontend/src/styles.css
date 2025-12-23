@@ -1,0 +1,360 @@
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #e2e8f0;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* 黑蓝半透明遮罩层 */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1), rgba(0, 0, 0, 0.8)),
+                rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: -1;
+  }
+  
+:root {
+    --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --color-bg: #0d1117;
+    --color-bg-secondary: #161b22;
+    --color-accent: #3b82f6; /* 蓝色主色调 */
+    --color-accent-gradient: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    --color-text: #e6edf3;
+    --color-text-secondary: #9ba1a6;
+    --color-border: #30363d;
+    --color-hover: #1f6feb;
+    --radius: 8px;
+    --transition: all 0.25s ease-in-out;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  /* Header 区域 */
+ 
+header {
+    display: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    border-bottom: 1px solid var(--color-border);
+    background: radial-gradient(circle at top left, #1f2937 0%, #0d1117 80%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* 平台标题 */
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #3b82f6, #8b5cf6) 1;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.3) inset;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  header h1:hover {
+    transform: scale(1.03);
+    text-shadow: 0 0 14px rgba(139, 92, 246, 0.8);
+  }
+  
+  /* 导航栏 */
+  nav {
+    display: flex;
+    gap: 30px;
+    margin-left: 60px;
+  }
+  
+  /* 导航链接样式 */
+  nav a {
+    position: relative;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    transition: var(--transition);
+  }
+  
+  nav a:hover {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+  }
+  
+  /* 激活状态导航项 */
+  nav a.active {
+    color: #ffffff;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border: none;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+  }
+  
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+  }
+  
+  /* 主内容 */
+  main {
+    padding: 24px;
+  }
+  
+  /* 表单与输入控件 */
+  label {
+    display: block;
+    margin: 10px 0 6px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+    transition: var(--transition);
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--color-hover);
+    outline: none;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* 按钮样式 */
+  button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--color-accent-gradient);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* 卡片式布局，用于模块展示 */
+  .card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    border-color: var(--color-hover);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-hover);
+  }
+  
+  nav {
+    display: flex;
+    gap: 24px;
+    margin-left: 80px; /* 增大标题和导航间距 */
+  }
+  
+  /* === 表单标题高亮 === */
+label {
+    display: block;
+    margin: 16px 0 8px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid #3b82f6;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+  
+  /* === 输入框更清晰 === */
+  input,
+  select,
+  textarea {
+    background-color: #1c2128;
+    border: 1px solid #2f3743;
+  }
+  
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  
+  /* === 参数示例卡片亮化 === */
+  .card {
+    background: #1c2128;
+    border: 1px solid #3b82f6;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+    transition: var(--transition);
+  }
+  
+  .card:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+  }
+  
+  /* 页面主容器最大宽度与居中 */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  
+  /* 各区域卡片化分块 */
+  .section {
+    background: #1c2128;
+    border: 1px solid #2f3743;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* 标题更醒目 */
+  .section h2 {
+    font-size: 1.2rem;
+    color: #60a5fa;
+    border-bottom: 1px solid #2f3743;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  button {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s;
+  }
+  
+  button:hover::after {
+    left: 100%;
+  }
+  
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  }
+  
+  input:hover,
+textarea:hover,
+select:hover {
+  border-color: #3b82f6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* 输入区过渡光晕 */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+/* 卡片 hover 光效 */
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+header::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, transparent);
+  }
+
+select {
+    background-color: #1c2128;
+    border: 1px solid #2f3743;
+    color: #e6edf3;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  select:hover {
+    border-color: #3b82f6;
+  }

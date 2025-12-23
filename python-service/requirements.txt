@@ -1,0 +1,13 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+python-multipart==0.0.9
+orjson==3.10.7
+requests==2.32.3
+python-dotenv==1.0.1
+gmssl==3.2.1
+python-jose[cryptography]==3.3.0
+sqlalchemy==2.0.23
+pymysql==1.1.0
+cryptography==41.0.7
+passlib[bcrypt]==1.7.4
